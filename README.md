@@ -1,0 +1,1 @@
+Fundi is a furniture store and home decor company. Fundi.com is the ecommerce version of the store. it is developed on mern stack - MONGO, EXPRESS, REACT and NODE.
