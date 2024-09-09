@@ -1,0 +1,9 @@
+Mongodb logins
+
+username - fundi
+
+password - fundi.com254
+
+mongodb+srv://fundi:<db_password>@fundi.0gmoa.mongodb.net/
+
+mongodb+srv://fundi:fundi.com254@fundi.0gmoa.mongodb.net/
