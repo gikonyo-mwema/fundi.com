@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import AuthLayout from "./layouts/AuthLayout.jsx";
-import AdminLayout from "./layouts/AdminLayout.jsx";
-import AdminDashboard from "./pages/admin/dashboard.jsx";
-import AdminProducts from "./pages/admin/products.jsx";
-import AdminFeatures from "./pages/admin/features.jsx";
-import AdminOrders from "./pages/admin/orders.jsx";
-import AuthLogin from "./pages/auth/login.jsx";
-import AuthRegister from "./pages/auth/register.jsx";
+import AuthLayout from "./components/auth/layout.jsx"; 
+import AdminLayout from "./layouts/AdminLayout.jsx"; 
+import AdminDashboard from "./pages/admin-view/dashboard.jsx"; 
+import AdminProducts from "./pages/admin-view/products.jsx"; 
+import AdminFeatures from "./pages/admin-view/features.jsx"; 
+import AdminOrders from "./pages/admin-view/orders.jsx"; 
+import AuthLogin from "./pages/auth/login.jsx"; 
+import AuthRegister from "./pages/auth/register.jsx"; 
 
 function App() {
   return (
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App;
+
