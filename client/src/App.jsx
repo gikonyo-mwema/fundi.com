@@ -7,6 +7,7 @@ import AdminFeatures from "./pages/admin-view/features.jsx";
 import AdminOrders from "./pages/admin-view/orders.jsx"; 
 import AuthLogin from "./pages/auth/login.jsx"; 
 import AuthRegister from "./pages/auth/register.jsx"; 
+import NotFound from "./pages/not-found/index.jsx";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           <Route path="features" element={<AdminFeatures />} />
           <Route path="orders" element={<AdminOrders />} />
         </Route>
+        <Route path="/shop" element={<ShoppingLayout />}></Route>
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
     </div>
   );
