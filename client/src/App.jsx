@@ -1,24 +1,32 @@
-import { Routes } from "react-router-dom"
-import AuthLogin from "./pages/auth/login"
-import AuthRegister from "./pages/auth/register"
-
+import { Routes, Route } from "react-router-dom";
+import AuthLayout from "./layouts/AuthLayout.jsx";
+import AdminLayout from "./layouts/AdminLayout.jsx";
+import AdminDashboard from "./pages/admin/dashboard.jsx";
+import AdminProducts from "./pages/admin/products.jsx";
+import AdminFeatures from "./pages/admin/features.jsx";
+import AdminOrders from "./pages/admin/orders.jsx";
+import AuthLogin from "./pages/auth/login.jsx";
+import AuthRegister from "./pages/auth/register.jsx";
 
 function App() {
- 
-
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       {/* common components */}
 
       <Routes>
-        <Route path="/auth" element={<AuthLayout />} />
-         <Route path="/login" element={<AuthLogin/>} />
-         <Route path="/register" element={<AuthRegister/>} />
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<AuthLogin />} />
+          <Route path="register" element={<AuthRegister />} />
+        </Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="features" element={<AdminFeatures />} />
+          <Route path="orders" element={<AdminOrders />} />
+        </Route>
       </Routes>
     </div>
-   
-    
-  )
+  );
 }
 
-export default App
+export default App;
