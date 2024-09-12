@@ -8,6 +8,8 @@ import AdminOrders from "./pages/admin-view/orders.jsx";
 import AuthLogin from "./pages/auth/login.jsx"; 
 import AuthRegister from "./pages/auth/register.jsx"; 
 import NotFound from "./pages/not-found/index.jsx";
+import ShoppingCheckout from "./pages/shopping-view/checkout.jsx";
+import ShoppingAccounts from "./pages/shopping-view/accounts.jsx";
 
 function App() {
   return (
@@ -25,9 +27,15 @@ function App() {
           <Route path="features" element={<AdminFeatures />} />
           <Route path="orders" element={<AdminOrders />} />
         </Route>
-        <Route path="/shop" element={<ShoppingLayout />}></Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="/shop" element={<ShoppingLayout />}>
 
+        <Route path="home" element={<ShoppingHome />} />
+        <Route path="listing" element={<ShoppingListing />} />
+        <Route path="checkout" element={<ShoppingCheckout />} />
+        <Route path="accounts" element={<ShoppingAccounts />} />
+        <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
