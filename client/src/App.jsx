@@ -52,6 +52,7 @@ function App() {
         </Route>
                 
         <Route path="*" element={<NotFound />} />
+        <Route path="unauth-page" element={<Unauth />} />
       </Routes>
     </div>
   );
