@@ -1,61 +1,61 @@
-
-
 import {
-    BadgeCheck,
-    ChartNoAxesCombined,
-    icons,
-    LayoutDashboard,
-    ShoppingBasket,
+  BadgeCheck,
+  ChartNoAxesCombined,
+  LayoutDashboard,
+  ShoppingBasket,
 } from "lucide-react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
 
-
-const adminSidebarMenuItemns = [
-    {
-        id: "dashboard",
-        label: "Dashboard",
-        path: "/admin/dashboard",
-        icon: <LayoutDashboard />,
-    },
-    {
-        id: "orders",
-        label: "Orders",
-        path: "/admin/orders",
-        icon: <BadgeCheck />,
-    },
+const adminSidebarMenuItems = [
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    path: "/admin/dashboard",
+    icon: <LayoutDashboard />,
+  },
+  {
+    id: "products",
+    label: "Products",
+    path: "/admin/products",
+    icon: <ShoppingBasket />,
+  },
+  {
+    id: "orders",
+    label: "Orders",
+    path: "/admin/orders",
+    icon: <BadgeCheck />,
+  },
 ];
 
 function MenuItems({ setOpen }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return (
-        <nav className="mt-8 flex-col flex gap-2">
-            {adminSidebarMenuItemns.map((menuItem) => (
-                <div
-                key={menuItem.id}
-                onClick={() => {
-                    navigate(menuItem.path);
-                    setOpen ? setOpen(false) : null;
-                }}
-                className="flex cursor-pointer text-xl items-center gap-2 rounded-md px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground"
-                >
-                    {menuItem.icon}
-                    <span>{menuuItem.label}</span>
+  return (
+    <nav className="mt-8 flex-col flex gap-2">
+      {adminSidebarMenuItems.map((menuItem) => (
+        <div
+          key={menuItem.id}
+          onClick={() => {
+            navigate(menuItem.path);
+            setOpen ? setOpen(false) : null;
+          }}
+          className="flex cursor-pointer text-xl items-center gap-2 rounded-md px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground"
+        >
+          {menuItem.icon}
+          <span>{menuItem.label}</span>
+        </div>
+      ))}
+    </nav>
+  );
+}
 
-                </div>
+function AdminSideBar({ open, setOpen }) {
+  const navigate = useNavigate();
 
-            ))}
-        </nav>
-    );
-    }
-
-    function AdminSideBar({ open, setOpen}) {
-        const navigate = useNavigate();
-
-        return (
-            <Fragment>
+  return (
+    <Fragment>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side="left" className="w-64">
           <div className="flex flex-col h-full">
@@ -80,6 +80,7 @@ function MenuItems({ setOpen }) {
         <MenuItems />
       </aside>
     </Fragment>
-        );
-    }
-    
+  );
+}
+
+export default AdminSideBar;
