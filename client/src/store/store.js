@@ -1,7 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth-slice";
-import adminProductsSlice from "./admin/products-slice";
-import adminOrderSlice from "./admin/order-slice";
+
+import authReducer from "./auth-slice";
+import adminProductsSlice from "./admin/product-slice"; // Corrected path
+import adminOrderSlice from "./admin/order-slice"; // Corrected path
+
+
 
 import shopProductsSlice from "./shop/products-slice";
 import shopCartSlice from "./shop/cart-slice";
@@ -11,7 +15,7 @@ import shopSearchSlice from "./shop/search-slice";
 import shopReviewSlice from "./shop/review-slice";
 import commonFeatureSlice from "./common-slice";
 
-import rootReducer from './rootReducer';
+
 
 const store = configureStore({
   reducer: {
