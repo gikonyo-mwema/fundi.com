@@ -15,13 +15,27 @@ const shopReviewRouter = require("./routes/shop/review-routes");
 
 const commonFeatureRouter = require("./routes/common/feature-routes");
 
+
+// Load environment variables from .env file
+require('dotenv').config();
+
+// Create a database connection
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((error) => console.log(error));
+
+  
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
 
-mongoose
-  .connect("db_url")
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.log(error));
+//mongoose
+//  .connect("db_url")
+ // .then(() => console.log("MongoDB connected"))
+ // .catch((error) => console.log(error));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
