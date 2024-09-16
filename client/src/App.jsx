@@ -12,6 +12,10 @@ import ShoppingCheckout from "./pages/shopping-view/checkout.jsx";
 import ShoppingAccounts from "./pages/shopping-view/accounts.jsx";
 import CheckAuth from "./components/common/check-auth.jsx";
 
+import ShoppingHome from "./pages/shopping-view/home.jsx"; // Import ShoppingHome
+import ShoppingListing from "./pages/shopping-view/listing.jsx"; // Import ShoppingListing
+import ShoppingLayout from "./layouts/ShoppingLayout.jsx"; // Ensure this path is correct
+
 function App() {
 
   const isAuthenticated = false;
