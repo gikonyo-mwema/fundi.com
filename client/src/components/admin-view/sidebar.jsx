@@ -3,11 +3,12 @@ import {
   ChartNoAxesCombined,
   LayoutDashboard,
   ShoppingBasket,
-} from "lucide-react";
-import { Fragment } from "react";
-import { useNavigate } from "react-router-dom";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
+} from "lucide-react"; // Importing icons from lucide-react
+import { Fragment } from "react"; // Importing Fragment from React
+import { useNavigate } from "react-router-dom"; // Importing useNavigate hook from react-router-dom
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet"; // Importing components from custom UI library
 
+// Define the menu items for the admin sidebar
 const adminSidebarMenuItems = [
   {
     id: "dashboard",
@@ -29,8 +30,9 @@ const adminSidebarMenuItems = [
   },
 ];
 
+// Component to render the menu items
 function MenuItems({ setOpen }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   return (
     <nav className="mt-8 flex-col flex gap-2">
@@ -38,8 +40,8 @@ function MenuItems({ setOpen }) {
         <div
           key={menuItem.id}
           onClick={() => {
-            navigate(menuItem.path);
-            setOpen ? setOpen(false) : null;
+            navigate(menuItem.path); // Navigate to the selected path
+            setOpen ? setOpen(false) : null; // Close the sidebar if setOpen is provided
           }}
           className="flex cursor-pointer text-xl items-center gap-2 rounded-md px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground"
         >
@@ -51,11 +53,13 @@ function MenuItems({ setOpen }) {
   );
 }
 
+// Component to render the admin sidebar
 function AdminSideBar({ open, setOpen }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   return (
     <Fragment>
+      {/* Sidebar for mobile view */}
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side="left" className="w-64">
           <div className="flex flex-col h-full">
@@ -65,10 +69,11 @@ function AdminSideBar({ open, setOpen }) {
                 <h1 className="text-2xl font-extrabold">Admin Panel</h1>
               </SheetTitle>
             </SheetHeader>
-            <MenuItems setOpen={setOpen} />
+            <MenuItems setOpen={setOpen} /> {/* Render menu items */}
           </div>
         </SheetContent>
       </Sheet>
+      {/* Sidebar for desktop view */}
       <aside className="hidden w-64 flex-col border-r bg-background p-6 lg:flex">
         <div
           onClick={() => navigate("/admin/dashboard")}
@@ -77,10 +82,10 @@ function AdminSideBar({ open, setOpen }) {
           <ChartNoAxesCombined size={30} />
           <h1 className="text-2xl font-extrabold">Admin Panel</h1>
         </div>
-        <MenuItems />
+        <MenuItems /> {/* Render menu items */}
       </aside>
     </Fragment>
   );
 }
 
-export default AdminSideBar;
+export default AdminSideBar; // Export the AdminSideBar component as default

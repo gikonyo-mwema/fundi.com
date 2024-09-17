@@ -24,16 +24,20 @@ function AdminOrdersView() {
   const { orderList, orderDetails } = useSelector((state) => state.adminOrder);
   const dispatch = useDispatch();
 
+  // Function to fetch order details by ID
   function handleFetchOrderDetails(getId) {
     dispatch(getOrderDetailsForAdmin(getId));
   }
 
+  // Fetch all orders when the component mounts
   useEffect(() => {
     dispatch(getAllOrdersForAdmin());
   }, [dispatch]);
 
+  // Log order details for debugging
   console.log(orderDetails, "orderList");
 
+  // Open the details dialog when order details are available
   useEffect(() => {
     if (orderDetails !== null) setOpenDetailsDialog(true);
   }, [orderDetails]);
@@ -59,9 +63,9 @@ function AdminOrdersView() {
           <TableBody>
             {orderList && orderList.length > 0
               ? orderList.map((orderItem) => (
-                  <TableRow>
+                  <TableRow key={orderItem?._id}>
                     <TableCell>{orderItem?._id}</TableCell>
-                    <TableCell>{orderItem?.orderDate.split("T")[0]}</TableCell>
+                    <TableCell>{orderItem?.orderDate}</TableCell>
                     <TableCell>
                       <Badge
                         className={`py-1 px-3 ${

@@ -20,7 +20,7 @@ import ShoppingLayout from "./layouts/ShoppingLayout.jsx"; // Ensure this path i
 
 function App() {
 
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   const user = null;
 
   return (
