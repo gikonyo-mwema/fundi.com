@@ -127,9 +127,15 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
+        state.isLoading = false;
+        // Optionally handle error state here
+        console.error('Logout failed:', action.error);
       });
-  },
-});
+      },
+    });
 
-export const { setUser } = authSlice.actions;
-export default authSlice.reducer;
+    export const { setUser } = authSlice.actions;
+    // export { logoutUser }; // Export logoutUser
+    export default authSlice.reducer;
