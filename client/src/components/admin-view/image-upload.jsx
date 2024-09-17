@@ -6,21 +6,6 @@ import { Button } from "../ui/button";
 import axios from "axios";
 import { Skeleton } from "../ui/skeleton";
 
-/**
- * Component for uploading product images with drag-and-drop support.
- *
- * @component
- * @param {Object} props - The component props.
- * @param {File|null} props.imageFile - The currently selected image file.
- * @param {Function} props.setImageFile - Function to set the selected image file.
- * @param {boolean} props.imageLoadingState - State indicating if the image is being uploaded.
- * @param {string} props.uploadedImageUrl - URL of the uploaded image.
- * @param {Function} props.setUploadedImageUrl - Function to set the uploaded image URL.
- * @param {Function} props.setImageLoadingState - Function to set the image loading state.
- * @param {boolean} props.isEditMode - Flag indicating if the component is in edit mode.
- * @param {boolean} [props.isCustomStyling=false] - Flag indicating if custom styling should be applied.
- * @returns {JSX.Element} The rendered component.
- */
 function ProductImageUpload({
   imageFile,
   setImageFile,
@@ -35,11 +20,6 @@ function ProductImageUpload({
 
   console.log(isEditMode, "isEditMode");
 
-  /**
-   * Handles the change event when an image file is selected.
-   *
-   * @param {Event} event - The change event.
-   */
   function handleImageFileChange(event) {
     console.log(event.target.files, "event.target.files");
     const selectedFile = event.target.files?.[0];
@@ -48,29 +28,16 @@ function ProductImageUpload({
     if (selectedFile) setImageFile(selectedFile);
   }
 
-  /**
-   * Handles the drag over event to allow dropping.
-   *
-   * @param {Event} event - The drag over event.
-   */
   function handleDragOver(event) {
     event.preventDefault();
   }
 
-  /**
-   * Handles the drop event when a file is dropped.
-   *
-   * @param {Event} event - The drop event.
-   */
   function handleDrop(event) {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files?.[0];
     if (droppedFile) setImageFile(droppedFile);
   }
 
-  /**
-   * Handles the removal of the selected image file.
-   */
   function handleRemoveImage() {
     setImageFile(null);
     if (inputRef.current) {
@@ -78,9 +45,6 @@ function ProductImageUpload({
     }
   }
 
-  /**
-   * Uploads the selected image file to Cloudinary.
-   */
   async function uploadImageToCloudinary() {
     setImageLoadingState(true);
     const data = new FormData();
@@ -97,44 +61,62 @@ function ProductImageUpload({
     }
   }
 
-  /**
-   * Effect hook to upload the image file when it changes.
-   */
   useEffect(() => {
     if (imageFile !== null) uploadImageToCloudinary();
   }, [imageFile]);
 
   return (
     <div
-      className={`image-upload-container ${isCustomStyling ? "custom-styling" : ""}`}
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
+      className={`w-full  mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto"}`}
     >
-      <Label htmlFor="image-upload" className="image-upload-label">
-        {isEditMode ? "Edit Image" : "Upload Image"}
-      </Label>
-      <Input
-        type="file"
-        id="image-upload"
-        ref={inputRef}
-        onChange={handleImageFileChange}
-        className="image-upload-input"
-      />
-      {imageFile && (
-        <div className="image-preview">
-          <FileIcon />
-          <span>{imageFile.name}</span>
-          <Button onClick={handleRemoveImage}>
-            <XIcon />
-          </Button>
-        </div>
-      )}
-      {imageLoadingState && <Skeleton />}
-      {uploadedImageUrl && (
-        <div className="uploaded-image">
-          <img src={uploadedImageUrl} alt="Uploaded" />
-        </div>
-      )}
+      <Label className="text-lg font-semibold mb-2 block">Upload Image</Label>
+      <div
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+        className={`${
+          isEditMode ? "opacity-60" : ""
+        } border-2 border-dashed rounded-lg p-4`}
+      >
+        <Input
+          id="image-upload"
+          type="file"
+          className="hidden"
+          ref={inputRef}
+          onChange={handleImageFileChange}
+          disabled={isEditMode}
+        />
+        {!imageFile ? (
+          <Label
+            htmlFor="image-upload"
+            className={`${
+              isEditMode ? "cursor-not-allowed" : ""
+            } flex flex-col items-center justify-center h-32 cursor-pointer`}
+          >
+            <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
+            <span>Drag & drop or click to upload image</span>
+          </Label>
+        ) : imageLoadingState ? (
+          <Skeleton className="h-10 bg-gray-100" />
+        ) : (
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <FileIcon className="w-8 text-primary mr-2 h-8" />
+            </div>
+            <p className="text-sm font-medium">{imageFile.name}</p>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground hover:text-foreground"
+              onClick={handleRemoveImage}
+            >
+              <XIcon className="w-4 h-4" />
+              <span className="sr-only">Remove File</span>
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
+
+export default ProductImageUpload;
