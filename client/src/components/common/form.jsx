@@ -11,6 +11,40 @@ import {
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 
+/**
+ * CommonForm component renders a dynamic form based on the provided form controls.
+ *
+ * @component
+ * @param {Object} props - The properties object.
+ * @param {Array} props.formControls - Array of form control objects, each containing the configuration for a form element.
+ * @param {Object} props.formData - The current state of the form data.
+ * @param {Function} props.setFormData - Function to update the form data state.
+ * @param {Function} props.onSubmit - Function to handle form submission.
+ * @param {string} props.buttonText - Text to display on the submit button.
+ * @param {boolean} props.isBtnDisabled - Flag to disable the submit button.
+ *
+ * @returns {JSX.Element} The rendered form component.
+ *
+ * @example
+ * const formControls = [
+ *   { name: 'username', label: 'Username', componentType: 'input', type: 'text', placeholder: 'Enter your username' },
+ *   { name: 'password', label: 'Password', componentType: 'input', type: 'password', placeholder: 'Enter your password' },
+ *   { name: 'gender', label: 'Gender', componentType: 'select', options: [{ id: 'male', label: 'Male' }, { id: 'female', label: 'Female' }] },
+ *   { name: 'bio', label: 'Bio', componentType: 'textarea', placeholder: 'Tell us about yourself' }
+ * ];
+ * const formData = { username: '', password: '', gender: '', bio: '' };
+ * const setFormData = (data) => console.log(data);
+ * const onSubmit = (event) => { event.preventDefault(); console.log('Form submitted'); };
+ *
+ * <CommonForm
+ *   formControls={formControls}
+ *   formData={formData}
+ *   setFormData={setFormData}
+ *   onSubmit={onSubmit}
+ *   buttonText="Register"
+ *   isBtnDisabled={false}
+ * />
+ */
 function CommonForm({
   formControls,
   formData,
