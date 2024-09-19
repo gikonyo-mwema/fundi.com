@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../components/admin-view/header";
 import Sidebar from "../components/admin-view/sidebar";
-// import Footer from "../components/admin-view/footer";
+import Footer from "../components/admin-view/footer";
 
 const ShoppingLayout = ({ children }) => {
     return (
