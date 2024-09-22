@@ -1,7 +1,8 @@
-import CommonForm from "@/components/common/form";
-import { useToast } from "@/components/ui/use-toast";
-import { loginFormControls } from "@/config";
-import { loginUser } from "@/store/auth-slice";
+// client/src/pages/user-auth/UserLogin.jsx
+import CommonForm from "../../components/common/Form.jsx";
+import useToast from "../../components/UI/use-toast.js";
+import { loginFormControls } from "../../config/routesConfig.jsx";
+import { loginUser } from "../../store/Auth-slice/auth.jsx";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -40,7 +41,7 @@ function AuthLogin() {
           Sign in to your account
         </h1>
         <p className="mt-2">
-          Don't have an account
+          Don't have an account?
           <Link
             className="font-medium ml-2 text-primary hover:underline"
             to="/auth/register"
@@ -61,3 +62,4 @@ function AuthLogin() {
 }
 
 export default AuthLogin;
+

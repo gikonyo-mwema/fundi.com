@@ -1,7 +1,8 @@
-import CommonForm from "@/components/common/form";
-import { useToast } from "@/components/ui/use-toast";
-import { registerFormControls } from "@/config";
-import { registerUser } from "@/store/auth-slice";
+// client/src/pages/user-auth/UserRegister.jsx
+import CommonForm from "../../components/common/Form.jsx";
+import useToast from "../../components/UI/use-toast.js";
+import { registerFormControls } from "../../config/routesConfig.jsx";
+import { registerUser } from "../../store/Auth-slice/auth.jsx";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -44,7 +45,7 @@ function AuthRegister() {
           Create new account
         </h1>
         <p className="mt-2">
-          Already have an account
+          Already have an account?
           <Link
             className="font-medium ml-2 text-primary hover:underline"
             to="/auth/login"
@@ -65,3 +66,4 @@ function AuthRegister() {
 }
 
 export default AuthRegister;
+
