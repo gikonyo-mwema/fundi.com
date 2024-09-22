@@ -3,7 +3,7 @@ const express = require("express");
 const {
   getFilteredProducts,
   getProductDetails,
-} = require("../../controllers/shop/products-controller");
+} = require("../../controllers/shop/productHandler");
 
 const router = express.Router();
 

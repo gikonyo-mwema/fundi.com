@@ -5,7 +5,7 @@ const {
   fetchAllAddress,
   editAddress,
   deleteAddress,
-} = require("../../controllers/shop/address-controller");
+} = require("../../controllers/shop/addressHandler");
 
 const router = express.Router();
 
