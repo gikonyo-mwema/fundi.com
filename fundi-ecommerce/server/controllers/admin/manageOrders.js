@@ -1,4 +1,4 @@
-const Order = require("../../models/Order");
+const Order = require("../../models/OrderModel");
 
 // Fetch all orders for admin view
 const getAllOrdersForAdmin = async (req, res) => {
