@@ -1,11 +1,14 @@
 import React from 'react';
 
-function AdminLayout() {
+const AdminPanelLayout = ({ children }) => {
   return (
-	<div>
-	  <h1>Admin Layout</h1>
-	  {/* Other components or JSX */}
-	</div>
+    <div>
+      <header>Admin Panel</header>
+      <main>{children}</main>
+      <footer>Footer</footer>
+    </div>
   );
-}
+};
+
+export default AdminPanelLayout;
 
