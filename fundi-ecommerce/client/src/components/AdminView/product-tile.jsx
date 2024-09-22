@@ -1,5 +1,6 @@
-import { Button } from "../ui/button";
-import { Card, CardContent, CardFooter } from "../ui/card";
+// client/src/components/AdminView/product-tile.jsx
+import Button from "../UI/button.jsx";
+import { Card, CardContent, CardFooter } from "../UI/card.jsx";
 
 // AdminProductTile component to display product details and provide edit/delete options
 function AdminProductTile({
@@ -58,3 +59,4 @@ function AdminProductTile({
 }
 
 export default AdminProductTile;
+

@@ -1,7 +1,7 @@
 import { AlignJustify, LogOut } from "lucide-react"; // Importing icons from lucide-react
-import { Button } from "../ui/button"; // Importing Button component
+import Button from "../UI/button.jsx"; // Importing Button component
 import { useDispatch } from 'react-redux'; // Importing useDispatch hook from react-redux
-import { logoutUser } from "../../store/auth-slice"; // Importing logoutUser action from auth-slice
+import { logoutUser } from "../../store/Auth-slice/auth.jsx"; // Importing logoutUser action from auth-slice
 
 // AdminHeader component definition
 function AdminHeader({ setOpen }) {
@@ -36,3 +36,4 @@ function AdminHeader({ setOpen }) {
 }
 
 export default AdminHeader; // Exporting AdminHeader component as default
+

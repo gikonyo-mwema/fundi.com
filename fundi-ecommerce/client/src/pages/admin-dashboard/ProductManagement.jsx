@@ -1,21 +1,21 @@
-import ProductImageUpload from "@/components/admin-view/image-upload";
-import AdminProductTile from "@/components/admin-view/product-tile";
-import CommonForm from "@/components/common/form";
-import { Button } from "@/components/ui/button";
+import ImageUpload from "../../components/AdminView/image-upload.jsx";
+import ProductTile from "../../components/AdminView/product-tile.jsx";
+import Form from "../../components/common/Form.jsx";
+import Button from "../../components/UI/button.jsx";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet";
-import { useToast } from "@/components/ui/use-toast";
-import { addProductFormElements } from "@/config";
+} from "../../components/UI/sheet.jsx";
+import useToast from "../../components/UI/use-toast.js";
+import { addProductFormElements } from "../../config/routesConfig.jsx";
 import {
   addNewProduct,
   deleteProduct,
   editProduct,
   fetchAllProducts,
-} from "@/store/admin/product-slice";
+} from "../../store/Admin/ProductSlice/product.js";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -30,6 +30,7 @@ const initialFormData = {
   totalStock: "",
   averageReview: 0,
 };
+
 
 function AdminProducts() {
   const [openCreateProductsDialog, setOpenCreateProductsDialog] =

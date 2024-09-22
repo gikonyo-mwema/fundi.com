@@ -1,10 +1,11 @@
+// client/src/components/AdminView/image-upload.jsx
 import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import Input from "../UI/input.jsx";
+import Label from "../UI/label.jsx";
 import { useEffect, useRef } from "react";
-import { Button } from "../ui/button";
+import Button from "../UI/button.jsx";
 import axios from "axios";
-import { Skeleton } from "../ui/skeleton";
+import Skeleton from "../UI/skeleton.jsx";
 
 function ProductImageUpload({
   imageFile,
@@ -120,3 +121,4 @@ function ProductImageUpload({
 }
 
 export default ProductImageUpload;
+

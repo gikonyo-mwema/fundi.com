@@ -5,10 +5,10 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { Button } from "../ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "../UI/sheet.jsx";
+import Button from "../UI/button.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { shoppingViewHeaderMenuItems } from "@/config";
+import { shoppingViewHeaderMenuItems } from "../../config.js";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,13 +16,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "../ui/avatar";
-import { logoutUser } from "@/store/auth-slice";
-import UserCartWrapper from "./cart-wrapper";
+} from "../UI/dropdown-menu.jsx";
+import { Avatar, AvatarFallback } from "../UI/avatar.jsx";
+import { logoutUser } from "../../store/AuthSlice/auth.js";
+import UserCartWrapper from "./cart-wrapper.jsx";
 import { useEffect, useState } from "react";
-import { fetchCartItems } from "@/store/shop/cart-slice";
-import { Label } from "../ui/label";
+import { fetchCartItems } from "../../store/Shop/CartSlice/cart.js";
+import Label from "../UI/label.jsx";
 
 function MenuItems() {
   const navigate = useNavigate();

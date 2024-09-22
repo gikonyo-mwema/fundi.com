@@ -1,17 +1,16 @@
-// Import necessary hooks and components
 import { useState } from "react";
-import CommonForm from "../common/form";
-import { DialogContent } from "../ui/dialog";
-import { Label } from "../ui/label";
-import { Separator } from "../ui/separator";
-import { Badge } from "../ui/badge";
+import CommonForm from "../common/Form.jsx";
+import { DialogContent } from "../UI/dialog.jsx";
+import Label from "../UI/label.jsx";
+import { Separator } from "../UI/separator.jsx";
+import { Badge } from "../UI/badge.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllOrdersForAdmin,
   getOrderDetailsForAdmin,
   updateOrderStatus,
-} from "@/store/admin/order-slice";
-import { useToast } from "../ui/use-toast";
+} from "../../store/Admin/OrderSlice/order.js";
+import useToast from "../UI/use-toast.js";
 
 // Initial form data state
 const initialFormData = {

@@ -1,6 +1,6 @@
-import { Button } from "../ui/button";
-import { Card, CardContent, CardFooter } from "../ui/card";
-import { Label } from "../ui/label";
+import { Button } from "../UI/button";
+import { Card, CardContent, CardFooter } from "../UI/card";
+import { Label } from "../UI/label";
 
 function AddressCard({
   addressInfo,

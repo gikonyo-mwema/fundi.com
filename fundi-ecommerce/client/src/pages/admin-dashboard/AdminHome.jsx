@@ -1,6 +1,6 @@
-import ProductImageUpload from "@/components/admin-view/image-upload";
-import { Button } from "@/components/ui/button";
-import { addFeatureImage, getFeatureImages } from "@/store/common-slice";
+import ProductImageUpload from "../../components/AdminView/image-upload.jsx";
+import Button from "../../components/UI/button.jsx";
+import { addFeatureImage, getFeatureImages } from "../../store/Common-slice/common.js";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

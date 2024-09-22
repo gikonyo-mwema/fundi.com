@@ -1,4 +1,4 @@
-import AdminOrdersView from "@/components/admin-view/orders";
+import AdminOrdersView from "../../components/AdminView/orders.jsx";
 
 function AdminOrders() {
   return (
@@ -8,4 +8,3 @@ function AdminOrders() {
   );
 }
 
-export default AdminOrders;

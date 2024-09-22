@@ -1,17 +1,18 @@
+// client/src/components/ShoppingView/product-details.jsx
 import { StarIcon } from "lucide-react";
-import { Avatar, AvatarFallback } from "../ui/avatar";
-import { Button } from "../ui/button";
-import { Dialog, DialogContent } from "../ui/dialog";
-import { Separator } from "../ui/separator";
-import { Input } from "../ui/input";
+import { Avatar, AvatarFallback } from "../UI/avatar.jsx";
+import Button from "../UI/button.jsx";
+import { Dialog, DialogContent } from "../UI/dialog.jsx";
+import Separator from "../UI/separator.jsx";
+import Input from "../UI/input.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
-import { useToast } from "../ui/use-toast";
-import { setProductDetails } from "@/store/shop/products-slice";
-import { Label } from "../ui/label";
-import StarRatingComponent from "../common/star-rating";
+import { addToCart, fetchCartItems } from "../../store/Shop/CartSlice/cart.js";
+import { useToast } from "../UI/use-toast.js";
+import { setProductDetails } from "../../store/Shop/ProductsSlice/products.js";
+import Label from "../UI/label.jsx";
+import StarRatingComponent from "../common/star-rating.jsx";
 import { useEffect, useState } from "react";
-import { addReview, getReviews } from "@/store/shop/review-slice";
+import { addReview, getReviews } from "../../store/Shop/ReviewSlice/review.js";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");

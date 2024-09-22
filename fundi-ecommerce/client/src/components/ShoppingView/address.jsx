@@ -1,16 +1,17 @@
+// client/src/components/ShoppingView/address.jsx
 import { useEffect, useState } from "react";
-import CommonForm from "../common/form";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { addressFormControls } from "@/config";
+import CommonForm from "../common/Form.jsx";
+import { Card, CardContent, CardHeader, CardTitle } from "../UI/card.jsx";
+import { addressFormControls } from "../../config.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addNewAddress,
   deleteAddress,
   editaAddress,
   fetchAllAddresses,
-} from "@/store/shop/address-slice";
-import AddressCard from "./address-card";
-import { useToast } from "../ui/use-toast";
+} from "../../store/Shop/AddressSlice/address.js";
+import AddressCard from "./address-card.jsx";
+import { useToast } from "../UI/use-toast.js";
 
 const initialAddressFormData = {
   address: "",

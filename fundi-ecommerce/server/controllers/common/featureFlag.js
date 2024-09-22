@@ -1,5 +1,5 @@
-const Feature = require("../../models/features");
-const cloudinary = require("../../helpers/cloudinary"); // Assuming you're using Cloudinary for image handling
+const Feature = require("../../models/FeatureModel");
+const cloudinary = require("../../helpers/cloudinary");
 
 // Controller to add a feature image
 const addFeatureImage = async (req, res) => {

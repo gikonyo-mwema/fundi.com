@@ -1,5 +1,5 @@
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import Input from "../UI/input.jsx";
+import Label from "../UI/label.jsx";
 
 import {
   Select,
@@ -7,9 +7,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
+} from "../UI/select.jsx";
+import Textarea from "../UI/textarea.jsx";
+import Button from "../UI/button.jsx";
 
 /**
  * CommonForm component renders a dynamic form based on the provided form controls.

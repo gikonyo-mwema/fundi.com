@@ -1,4 +1,4 @@
- 
+// client/src/components/AdminView/sidebar.jsx
 import {
   BadgeCheck,
   ChartNoAxesCombined,
@@ -7,7 +7,7 @@ import {
 } from "lucide-react"; // Importing icons from lucide-react
 import { Fragment } from "react"; // Importing Fragment from React
 import { useNavigate } from "react-router-dom"; // Importing useNavigate hook from react-router-dom
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet"; // Importing components from custom UI library
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../UI/sheet.jsx"; // Importing components from custom UI library
 
 // Define the menu items for the admin sidebar
 const adminSidebarMenuItems = [
@@ -90,3 +90,4 @@ function AdminSideBar({ open, setOpen }) {
 }
 
 export default AdminSideBar; // Export the AdminSideBar component as default
+

@@ -1,21 +1,20 @@
 import { Routes, Route } from "react-router-dom";
-import AuthLayout from "./components/Auth/AuthLayout.jsx"; // Adjusted path
-import AdminPanelLayout from "./layouts/AdminPanelLayout.jsx"; // Adjusted path
-import AdminDashboard from "./pages/admin-dashboard/AdminDashboard.jsx"; // Adjusted path
-import AdminProducts from "./pages/admin-dashboard/AdminProducts.jsx"; // Adjusted path
-import AdminFeatures from "./pages/admin-dashboard/AdminFeatures.jsx"; // Adjusted path
-import AdminOrders from "./pages/admin-dashboard/AdminOrders.jsx"; // Adjusted path
-import SignIn from "./components/Auth/SignIn.jsx"; // Adjusted path
-import SignUp from "./components/Auth/SignUp.jsx"; // Adjusted path
-import NotFound from "./pages/not-found/NotFound.jsx"; // Adjusted path
-import CheckoutSummary from "./components/Checkout/CheckoutSummary.jsx"; // Adjusted path
-import UserProfile from "./components/User/UserProfile.jsx"; // Adjusted path
-import CheckAuth from "./common/CheckAuth.jsx"; // Adjusted path
-
-import Unauth from "./pages/not-found/Unauth.jsx"; // Adjusted path
-import ShopLayout from "./layouts/ShopLayout.jsx"; // Adjusted path
-import ShoppingHome from "./pages/shop-view/ShoppingHome.jsx"; // Adjusted path
-import ShoppingListing from "./pages/shop-view/ShoppingListing.jsx"; // Adjusted path
+import AuthLayout from "./components/Auth/layout.jsx";
+import AdminPanelLayout from "./layouts/AdminPanelLayout.jsx";
+import AdminHome from "./pages/admin-dashboard/AdminHome.jsx";
+import ProductManagement from "./pages/admin-dashboard/ProductManagement.jsx";
+import FeatureManagement from "./pages/admin-dashboard/FeatureManagement.jsx";
+import OrderManagement from "./pages/admin-dashboard/OrderManagement.jsx";
+import SignIn from "./components/Auth/SignIn.jsx";
+import SignUp from "./components/Auth/SignUp.jsx";
+import NotFound from "./pages/user-unauth/Unauth.jsx";
+import CheckoutSummary from "./components/ShoppingView/cart-items-content.jsx";
+import UserProfile from "./pages/shop-view/Accounts.jsx";
+import CheckAuth from "./components/common/CheckAuth.jsx";
+import Unauth from "./pages/user-unauth/Unauth.jsx";
+import ShopLayout from "./layouts/ShopLayout.jsx";
+import ShopHome from "./pages/shop-view/ShopHome.jsx";
+import ProductListing from "./pages/shop-view/ProductListing.jsx";
 
 function App() {
   const isAuthenticated = true;
@@ -37,18 +36,18 @@ function App() {
             <AdminPanelLayout />
           </CheckAuth>
         }>
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="products" element={<AdminProducts />} />
-          <Route path="features" element={<AdminFeatures />} />
-          <Route path="orders" element={<AdminOrders />} />
+          <Route path="dashboard" element={<AdminHome />} />
+          <Route path="products" element={<ProductManagement />} />
+          <Route path="features" element={<FeatureManagement />} />
+          <Route path="orders" element={<OrderManagement />} />
         </Route>
         <Route path="/shop" element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
             <ShopLayout />
           </CheckAuth>
         }>
-          <Route path="home" element={<ShoppingHome />} />
-          <Route path="listing" element={<ShoppingListing />} />
+          <Route path="home" element={<ShopHome />} />
+          <Route path="listing" element={<ProductListing />} />
           <Route path="checkout" element={<CheckoutSummary />} />
           <Route path="accounts" element={<UserProfile />} />
         </Route>

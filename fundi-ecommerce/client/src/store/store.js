@@ -1,21 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import authReducer from "./Auth-slice/auth.jsx";
+import adminProductsSlice from "./Admin/ProductSlice/product.js";
+import adminOrderSlice from "./Admin/OrderSlice/order.js";
 
-import authReducer from "./auth-slice";
-import adminProductsSlice from "./admin/product-slice"; // Corrected path
-import adminOrderSlice from "./admin/order-slice"; // Corrected path
-
-
-
-import shopProductsSlice from "./shop/products-slice";
-import shopCartSlice from "./shop/cart-slice";
-import shopAddressSlice from "./shop/address-slice";
-import shopOrderSlice from "./shop/order-slice";
-import shopSearchSlice from "./shop/search-slice";
-import shopReviewSlice from "./shop/review-slice";
-import commonFeatureSlice from "./common-slice";
-
-
+import shopProductsSlice from "./shop/products-slice/product.js";
+import shopCartSlice from "./shop/cart-slice/cart.js";
+import shopAddressSlice from "./shop/address-slice/address.js";
+import shopOrderSlice from "./shop/order-slice/order.js";
+import shopSearchSlice from "./shop/search-slice/search.js";
+import shopReviewSlice from "./shop/review-slice/review.js";
+import commonFeatureSlice from "./Common-slice/common.js";
 
 const store = configureStore({
   reducer: {
@@ -36,3 +31,4 @@ const store = configureStore({
 });
 
 export default store;
+

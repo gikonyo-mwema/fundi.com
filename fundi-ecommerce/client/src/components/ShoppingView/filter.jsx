@@ -1,8 +1,8 @@
-import { filterOptions } from "@/config";
+import { filterOptions } from "../../config.js";
 import { Fragment } from "react";
-import { Label } from "../ui/label";
-import { Checkbox } from "../ui/checkbox";
-import { Separator } from "../ui/separator";
+import Label from "../UI/label.jsx";
+import Checkbox from "../UI/checkbox.jsx";
+import Separator from "../UI/separator.jsx";
 
 function ProductFilter({ filters, handleFilter }) {
   return (

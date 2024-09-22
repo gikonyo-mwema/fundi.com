@@ -1,8 +1,9 @@
+// client/src/components/ShoppingView/cart-items-content.jsx
 import { Minus, Plus, Trash } from "lucide-react";
-import { Button } from "../ui/button";
+import Button from "../UI/button.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCartItem, updateCartQuantity } from "@/store/shop/cart-slice";
-import { useToast } from "../ui/use-toast";
+import { deleteCartItem, updateCartQuantity } from "../../store/Shop/CartSlice/cart.js";
+import { useToast } from "../UI/use-toast.js";
 
 function UserCartItemsContent({ cartItem }) {
   const { user } = useSelector((state) => state.auth);

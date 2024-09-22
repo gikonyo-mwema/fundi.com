@@ -1,7 +1,8 @@
+// client/src/layouts/ShopLayout.jsx
 import React from 'react';
-import Header from "../components/admin-view/header";
-import Sidebar from "../components/admin-view/sidebar";
-import Footer from "../components/admin-view/footer";
+import Header from "../components/AdminView/header.jsx";
+import Sidebar from "../components/AdminView/sidebar.jsx";
+import Footer from "../components/AdminView/footer.jsx";
 
 const ShoppingLayout = ({ children }) => {
     return (
@@ -19,5 +20,4 @@ const ShoppingLayout = ({ children }) => {
 };
 
 export default ShoppingLayout;
-
 
