@@ -1,7 +1,8 @@
+// client/src/components/AdminView/orders.jsx
 import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Dialog } from "../ui/dialog";
+import Button from "../UI/button.jsx";
+import { Card, CardContent, CardHeader, CardTitle } from "../UI/card.jsx";
+import { Dialog } from "../UI/dialog.jsx";
 import {
   Table,
   TableBody,
@@ -9,15 +10,15 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
-import AdminOrderDetailsView from "./order-details";
+} from "../UI/table.jsx";
+import AdminOrderDetailsView from "./order-details.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllOrdersForAdmin,
   getOrderDetailsForAdmin,
   resetOrderDetails,
-} from "@/store/admin/order-slice";
-import { Badge } from "../ui/badge";
+} from "../../store/Admin/OrderSlice/order.js";
+import { Badge } from "../UI/badge.jsx";
 
 function AdminOrdersView() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
@@ -109,3 +110,4 @@ function AdminOrdersView() {
 }
 
 export default AdminOrdersView;
+
