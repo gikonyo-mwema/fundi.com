@@ -1,17 +1,17 @@
 const express = require("express");
-
 const {
-  getAllOrdersOfAllUsers,
-  getOrderDetailsForAdmin,
-  updateOrderStatus,
+  getAllOrdersForAdmin,
+  getOrderByIdForAdmin,
+  updateOrderStatusById,
 } = require("../../controllers/admin/manageOrders");
-
-
 
 const router = express.Router();
 
-router.get("/get", getAllOrdersOfAllUsers);
-router.get("/details/:id", getOrderDetailsForAdmin);
-router.put("/update/:id", updateOrderStatus);
+router.get("/get", getAllOrdersForAdmin);
+router.get("/details/:id", getOrderByIdForAdmin);
+router.put("/update/:id", updateOrderStatusById);
 
 module.exports = router;
+
+
+
