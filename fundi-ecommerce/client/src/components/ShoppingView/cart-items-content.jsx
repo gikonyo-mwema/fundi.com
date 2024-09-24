@@ -2,7 +2,7 @@
 import { Minus, Plus, Trash } from "lucide-react";
 import Button from "../UI/button.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCartItem, updateCartQuantity } from "../../store/Shop/CartSlice/cart.js";
+import { deleteCartItem, updateCartQuantity } from "../../store/shop/cart-slice/cart.js";
 import { useToast } from "../UI/use-toast.js";
 
 function UserCartItemsContent({ cartItem }) {

@@ -1,48 +1,60 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const authRouter = require("./routes/auth/userAuthRoutes");
+const adminProductsRouter = require("./routes/admin/productAdminRoutes");
+const adminOrderRouter = require("./routes/admin/orderAdminRoutes");
+
+const shopProductsRouter = require("./routes/shop/productRoutes");
+const shopCartRouter = require("./routes/shop/cartRoutes");
+const shopAddressRouter = require("./routes/shop/addressRoutes");
+const shopOrderRouter = require("./routes/shop/orderRoutes");
+const shopSearchRouter = require("./routes/shop/searchRoutes");
+const shopReviewRouter = require("./routes/shop/reviewRoutes");
+
+const commonFeatureRouter = require("./routes/common/featureRoutes");
+
 // Load environment variables from .env file
 require('dotenv').config();
 
-// External module imports
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+// Create a database connection
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((error) => console.log(error));
 
-// Internal module imports
-const productRoutes = require('./routes/products');
-const userRoutes = require('./routes/users');
-const orderRoutes = require('./routes/orders');
-const { configureCloudinary } = require('./config/cloudinary');
-
-// Initialize Express app
 const app = express();
-
-// Cloudinary configuration
-configureCloudinary();
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// API Routes
-app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/orders', orderRoutes);
-
-// MongoDB connection
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI, {});
-    console.log("MongoDB connected successfully");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1); // Exit with failure code
-  }
-};
-
-// Start the server and connect to MongoDB
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, async () => {
-  await connectDB();
-  console.log(`Server is running on port ${PORT}`);
-});
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "Expires",
+      "Pragma",
+    ],
+    credentials: true,
+  })
+);
 
+app.use(cookieParser());
+app.use(express.json());
+app.use("/api/auth", authRouter);
+app.use("/api/admin/products", adminProductsRouter);
+app.use("/api/admin/orders", adminOrderRouter);
+
+app.use("/api/shop/products", shopProductsRouter);
+app.use("/api/shop/cart", shopCartRouter);
+app.use("/api/shop/address", shopAddressRouter);
+app.use("/api/shop/orders", shopOrderRouter);
+app.use("/api/shop/search", shopSearchRouter);
+app.use("/api/shop/reviews", shopReviewRouter);
+
+app.use("/api/common/features", commonFeatureRouter);
+
+app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));

@@ -1,4 +1,4 @@
-const { imageUploadUtil } = require("../../helpers/cloudinary");
+const { imageUploadUtil } = require("../../helpers/imageUploader");
 const Product = require('../../models/ProductModel');
 
 // Upload an image for a product using Cloudinary

@@ -1,4 +1,3 @@
-// client/src/components/AdminView/image-upload.jsx
 import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
 import Input from "../UI/input.jsx";
 import Label from "../UI/label.jsx";
@@ -6,6 +5,45 @@ import { useEffect, useRef } from "react";
 import Button from "../UI/button.jsx";
 import axios from "axios";
 import Skeleton from "../UI/skeleton.jsx";
+
+import React from 'react';
+import PropTypes from 'prop-types'; // Importing PropTypes
+
+const ImageUpload = ({
+  imageFile,
+  setImageFile,
+  imageLoadingState,
+  uploadedImageUrl,
+  setUploadedImageUrl,
+  setImageLoadingState,
+  isEditMode,
+  isCustomStyling,
+}) => {
+  // Function to handle image upload
+  const uploadImageToCloudinary = () => {
+    // Your upload logic here
+  };
+
+  return (
+    <div>
+      {/* Your component JSX here */}
+    </div>
+  );
+};
+
+// Define prop types for ImageUpload
+ImageUpload.propTypes = {
+  imageFile: PropTypes.object.isRequired, // Validating imageFile as a required object
+  setImageFile: PropTypes.func.isRequired, // Validating setImageFile as a required function
+  imageLoadingState: PropTypes.string.isRequired, // Validating imageLoadingState as a required string
+  uploadedImageUrl: PropTypes.string, // Validating uploadedImageUrl as a string
+  setUploadedImageUrl: PropTypes.func.isRequired, // Validating setUploadedImageUrl as a required function
+  setImageLoadingState: PropTypes.func.isRequired, // Validating setImageLoadingState as a required function
+  isEditMode: PropTypes.bool.isRequired, // Validating isEditMode as a required boolean
+  isCustomStyling: PropTypes.bool.isRequired, // Validating isCustomStyling as a required boolean
+};
+
+
 
 function ProductImageUpload({
   imageFile,
@@ -93,32 +131,37 @@ function ProductImageUpload({
               isEditMode ? "cursor-not-allowed" : ""
             } flex flex-col items-center justify-center h-32 cursor-pointer`}
           >
-            <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
-            <span>Drag & drop or click to upload image</span>
+            <UploadCloudIcon className="w-10 h-10 mb-2" />
+            <span>Drag & drop or click to upload</span>
           </Label>
-        ) : imageLoadingState ? (
-          <Skeleton className="h-10 bg-gray-100" />
         ) : (
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <FileIcon className="w-8 text-primary mr-2 h-8" />
-            </div>
-            <p className="text-sm font-medium">{imageFile.name}</p>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground hover:text-foreground"
-              onClick={handleRemoveImage}
-            >
-              <XIcon className="w-4 h-4" />
-              <span className="sr-only">Remove File</span>
+            <FileIcon className="w-10 h-10" />
+            <span>{imageFile.name}</span>
+            <Button onClick={handleRemoveImage}>
+              <XIcon className="w-5 h-5" />
             </Button>
           </div>
         )}
+        {imageLoadingState && <Skeleton />}
       </div>
     </div>
   );
 }
 
+// Define prop types for ProductImageUpload
+ProductImageUpload.propTypes = {
+  imageFile: PropTypes.object.isRequired, // Validating imageFile as a required object
+  setImageFile: PropTypes.func.isRequired, // Validating setImageFile as a required function
+  imageLoadingState: PropTypes.bool.isRequired, // Validating imageLoadingState as a required boolean
+  uploadedImageUrl: PropTypes.string, // Validating uploadedImageUrl as a string
+  setUploadedImageUrl: PropTypes.func.isRequired, // Validating setUploadedImageUrl as a required function
+  setImageLoadingState: PropTypes.func.isRequired, // Validating setImageLoadingState as a required function
+  isEditMode: PropTypes.bool.isRequired, // Validating isEditMode as a required boolean
+  isCustomStyling: PropTypes.bool, // Validating isCustomStyling as a boolean
+};
+
+// Exporting ProductImageUpload component as default
 export default ProductImageUpload;
+
 

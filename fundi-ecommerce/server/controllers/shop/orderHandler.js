@@ -1,4 +1,4 @@
-const paypal = require("../../helpers/paypal");
+const paypal = require("../../helpers/paymentGateway");
 const Order = require("../../models/OrderModel");
 const Cart = require("../../models/CartModel");
 const Product = require("../../models/ProductModel");

@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types'; // Importing PropTypes
 import { AlignJustify, LogOut } from "lucide-react"; // Importing icons from lucide-react
 import Button from "../UI/button.jsx"; // Importing Button component
 import { useDispatch } from 'react-redux'; // Importing useDispatch hook from react-redux
@@ -34,6 +36,11 @@ function AdminHeader({ setOpen }) {
         </header>
     );
 }
+
+// Define prop types for AdminHeader
+AdminHeader.propTypes = {
+    setOpen: PropTypes.func.isRequired, // Validating setOpen as a required function
+};
 
 export default AdminHeader; // Exporting AdminHeader component as default
 

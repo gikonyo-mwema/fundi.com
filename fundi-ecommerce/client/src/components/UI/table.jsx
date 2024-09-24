@@ -80,4 +80,5 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+}
 

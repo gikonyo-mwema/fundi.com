@@ -1,5 +1,7 @@
 const cloudinary = require('cloudinary').v2;
+const multer = require('multer');
 
+// Configure Cloudinary
 const configureCloudinary = () => {
   cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -9,28 +11,18 @@ const configureCloudinary = () => {
   });
 };
 
-module.exports = { configureCloudinary };
+// Multer storage configuration
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-
-const cloudinary = require("cloudinary").v2;
-const multer = require("multer");
-
-cloudinary.config({
-  cloud_name: "",
-  api_key: "",
-  api_secret: "",
-});
-
-const storage = new multer.memoryStorage();
-
-async function imageUploadUtil(file) {
+// Image upload utility function
+const imageUploadUtil = async (file) => {
   const result = await cloudinary.uploader.upload(file, {
     resource_type: "auto",
   });
 
   return result;
-}
+};
 
-const upload = multer({ storage });
+module.exports = { configureCloudinary, imageUploadUtil, upload };
 
-module.exports = { upload, imageUploadUtil };
