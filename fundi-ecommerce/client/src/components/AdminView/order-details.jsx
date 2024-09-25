@@ -2,7 +2,7 @@ import { useState } from "react";
 import CommonForm from "../common/Form.jsx";
 import { DialogContent } from "../UI/dialog.jsx";
 import Label from "../UI/label.jsx";
-import { Separator } from "../UI/separator.jsx";
+import Separator from "../UI/separator.jsx";
 import { Badge } from "../UI/badge.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
