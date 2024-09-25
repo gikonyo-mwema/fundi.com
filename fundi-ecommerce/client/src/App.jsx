@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // Import for useState
 import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./components/Auth/layout.jsx";
 import AdminPanelLayout from "./layouts/AdminPanelLayout.jsx";
@@ -5,8 +6,8 @@ import AdminHome from "./pages/admin-dashboard/AdminHome.jsx";
 import ProductManagement from "./pages/admin-dashboard/ProductManagement.jsx";
 import FeatureManagement from "./pages/admin-dashboard/FeatureManagement.jsx";
 import OrderManagement from "./pages/admin-dashboard/OrderManagement.jsx";
-import SignIn from "./components/Auth/SignIn.jsx";
-import SignUp from "./components/Auth/SignUp.jsx";
+import SignIn from "./pages/user-auth/UserLogin.jsx";
+import SignUp from "./pages/user-auth/UserRegister.jsx";
 import NotFound from "./pages/user-unauth/Unauth.jsx";
 import CheckoutSummary from "./components/ShoppingView/cart-items-content.jsx";
 import UserProfile from "./pages/shop-view/Accounts.jsx";
@@ -15,10 +16,12 @@ import Unauth from "./pages/user-unauth/Unauth.jsx";
 import ShopLayout from "./layouts/ShopLayout.jsx";
 import ShopHome from "./pages/shop-view/ShopHome.jsx";
 import ProductListing from "./pages/shop-view/ProductListing.jsx";
+import AdminHeader from './components/AdminView/header.jsx'; // Import for AdminHeader
 
 function App() {
   const isAuthenticated = true;
   const user = null;
+  const [isOpen, setIsOpen] = useState(false); // state for isOpen
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">

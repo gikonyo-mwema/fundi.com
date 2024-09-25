@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
