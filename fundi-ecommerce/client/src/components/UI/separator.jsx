@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 
-import { cn } from "../../lib/helpers"; // Updated import path
+import { cn } from "../../lib/helpers";
 
 const Separator = React.forwardRef((
   { className, orientation = "horizontal", decorative = true, ...props },

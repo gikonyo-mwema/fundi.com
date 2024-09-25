@@ -1,7 +1,7 @@
 import * as React from "react"
 import * as AvatarPrimitive from "@radix-ui/react-avatar"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/helpers"
 
 /**
  * Avatar component that serves as a wrapper for the AvatarPrimitive.Root component.

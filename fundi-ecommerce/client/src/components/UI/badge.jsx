@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cva } from "class-variance-authority"; // Importing the class variance authority for handling class variants
 
-import { cn } from "@/lib/utils"; // Importing a utility function for class names
+import { cn } from "@/lib/helpers"; // Importing a utility function for class names
 
 // Define badge variants using cva
 const badgeVariants = cva(
